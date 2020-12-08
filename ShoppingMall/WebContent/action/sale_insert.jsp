@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*" %>
   <%	
-    int amount = Integer.parseInt(request.getParameter("amount"));	
     int product_id = Integer.parseInt(request.getParameter("product_id"));
+  	int amount = Integer.parseInt(request.getParameter("amount"));	  
     String date = request.getParameter("purchase_date");
-    %>
-<%
+    
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection conn = DriverManager.getConnection
@@ -18,8 +17,8 @@
 		int price = rs.getInt(1);
 		rs.close();
 		
-		String insert_query = "insert into sale values(sale_id, product_id, purchase_date, sale_price, amount)" +
-							  "values(seq_sale.nextval,%d,'%s',%d,%d)";
+		String insert_query = "INSERT INTO SALE (SALE_ID, PRODUCT_ID, PURCHASE_DATE, SALE_PRICE, AMOUNT) VALUES(SEQ_SALE.NEXTVAL,%d,'%s',%d,%d)";
+		System.out.println(String.format(insert_query, product_id, date,price * amount, amount));
 		stmt.executeQuery(String.format(insert_query, product_id, date,price * amount, amount));
 		
 		conn.commit();
@@ -31,5 +30,5 @@
 		e.printStackTrace();
 	}
 
-response.sendRedirect("../index.jsp?section=sale_lookup");
+	response.sendRedirect("../index.jsp?section=sale_lookup");
 	%>
