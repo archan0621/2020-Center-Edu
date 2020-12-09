@@ -27,7 +27,7 @@
 		%><%@include file="page/register_audition.jsp" %><%
 			break;
 	 	default:
-			%><%@include file="static/index.jsp" %>
+			%><%@include file="static/index.jsp" %><% 
 			}
 	%>
 	</section>
