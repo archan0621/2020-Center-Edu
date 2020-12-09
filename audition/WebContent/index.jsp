@@ -21,7 +21,7 @@
 		%><%@include file="page/artist_lookup_by_rank.jsp" %><%
 			break;
 		case "mento_point_lookup":
-		%><%@include file="page/member_point_lookup.jsp" %><%
+		%><%@include file="page/mento_point_lookup.jsp" %><%
 			break;
 		case "register_audition":
 		%><%@include file="page/register_audition.jsp" %><%
