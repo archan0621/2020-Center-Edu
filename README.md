@@ -1,5 +1,5 @@
 # 2020-Center-Edu 
-#Developed by archan
+Developed by archan
 > ***
 Development Environment<br>
 -----------------------
